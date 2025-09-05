@@ -141,23 +141,13 @@ export const SessionView = ({
         drag
         dragMomentum={false}
         ref={scrollContainerRef}
-        className="fixed top-40 left-4 z-50 h-1 w-1 cursor-move overflow-y-auto rounded-lg border p-2 shadow-lg"
-      >
-        {/* <div>{allmessages}</div> */}
-        <div ref={bottomRef} />
-      </motion.div>
-
-      <motion.div
-        drag
-        dragMomentum={false}
-        ref={scrollContainerRef}
         className={`fixed top-40 left-4 z-50 w-[25vw] cursor-move overflow-hidden rounded-lg border shadow-lg`}
         style={{
           height: isMinimized ? '40px' : '50vh',
         }}
       >
         <div className="flex cursor-move items-center justify-between border-b p-2">
-          <span className="text-sm font-semibold"></span>
+          <span className="text-sm font-semibold">한국어</span>
 
           <button onClick={() => setIsMinimized((prev) => !prev)} className="rounded px-2 text-xs">
             {isMinimized ? '+' : '-'}
@@ -170,6 +160,33 @@ export const SessionView = ({
             onPointerDown={(e) => e.stopPropagation()}
           >
             <div>{allmessages}</div>
+            <div ref={bottomRef} />
+          </div>
+        )}
+      </motion.div>
+
+      <motion.div
+        drag
+        dragMomentum={false}
+        ref={scrollContainerRef}
+        className={`fixed top-40 right-4 z-50 w-[25vw] cursor-move overflow-hidden rounded-lg border shadow-lg`}
+        style={{
+          height: isMinimized ? '40px' : '50vh',
+        }}
+      >
+        <div className="flex cursor-move items-center justify-between border-b p-2">
+          <span className="text-sm font-semibold">번역 언어</span>
+          <button onClick={() => setIsMinimized((prev) => !prev)} className="rounded px-2 text-xs">
+            {isMinimized ? '+' : '-'}
+          </button>
+        </div>
+
+        {!isMinimized && (
+          <div
+            className="h-[calc(50vh-40px)] overflow-y-auto p-2 select-text"
+            onPointerDown={(e) => e.stopPropagation()}
+          >
+            <div>번역언어가 보입니다.</div>
             <div ref={bottomRef} />
           </div>
         )}
@@ -207,7 +224,8 @@ export const SessionView = ({
                 )}
               >
                 <p className="animate-text-shimmer inline-block !bg-clip-text text-sm font-semibold text-transparent">
-                  Agent is listening, ask it a question
+                  {/* Agent is listening, ask it a question */}
+                  BARO.JAVIS 음성인식 AI가 작동 중입니다. 말씀해 주세요.
                 </p>
               </motion.div>
             )}

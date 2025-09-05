@@ -186,7 +186,7 @@ export function MediaTiles({ chatOpen }: MediaTilesProps) {
                     ...animationProps.transition,
                     delay: chatOpen ? 0 : 0.15,
                   }}
-                  className="h-[90px]"
+                  className="h-[160px]"
                 />
               )}
               {/* screen */}
